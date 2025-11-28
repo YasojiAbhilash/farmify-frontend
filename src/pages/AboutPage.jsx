@@ -222,7 +222,7 @@ const AboutPage = () => {
           <p className="text-center text-gray-600 text-xl mb-16">
             Passionate people behind Farmify
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {teamMembers.map((member) => (
               <div
                 key={member.id}
