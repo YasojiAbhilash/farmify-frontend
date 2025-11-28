@@ -23,7 +23,7 @@ export const register = createAsyncThunk(
       };
 
       const { data } = await axios.post(
-        `${API_URL}/auth/register`,
+        `${API_URL}/api/auth/register`,
         userData,
         config
       );
@@ -54,7 +54,7 @@ export const login = createAsyncThunk(
       };
 
       const { data } = await axios.post(
-        `${API_URL}/auth/login`,
+        `${API_URL}/api/auth/login`,
         userData,
         config
       );
@@ -90,7 +90,7 @@ export const loadUser = createAsyncThunk(
         },
       };
 
-      const { data } = await axios.get(`${API_URL}/auth/me`, config);
+      const { data } = await axios.get(`${API_URL}/api/auth/me`, config);
 
       return data;
     } catch (error) {
@@ -118,7 +118,7 @@ export const updateProfile = createAsyncThunk(
       };
 
       const { data } = await axios.put(
-        `${API_URL}/users/profile`,
+        `${API_URL}/api/users/profile`,
         userData,
         config
       );

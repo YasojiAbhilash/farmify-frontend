@@ -15,7 +15,7 @@ export const getAllUsers = createAsyncThunk("users/getAllUsers", async (_, { rej
       },
     }
 
-    const { data } = await axios.get(`${API_URL}/users`, config)
+    const { data } = await axios.get(`${API_URL}/api/users`, config)
     return data
   } catch (error) {
     const message = error.response && error.response.data.message ? error.response.data.message : error.message
@@ -34,7 +34,7 @@ export const deleteUser = createAsyncThunk("users/deleteUser", async (id, { reje
       },
     }
 
-    await axios.delete(`${API_URL}/users/${id}`, config)
+    await axios.delete(`${API_URL}/api/users/${id}`, config)
     return id
   } catch (error) {
     const message = error.response && error.response.data.message ? error.response.data.message : error.message

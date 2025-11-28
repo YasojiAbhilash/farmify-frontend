@@ -19,7 +19,7 @@ export const createOrder = createAsyncThunk(
         },
       }
 
-      const { data } = await axios.post(`${API_URL}/orders`, orderData, config)
+      const { data } = await axios.post(`${API_URL}/api/orders`, orderData, config)
 
       // Clear cart after successful order
       dispatch(clearCart())
@@ -45,7 +45,7 @@ export const getConsumerOrders = createAsyncThunk(
         },
       }
 
-      const { data } = await axios.get(`${API_URL}/orders/consumer`, config)
+      const { data } = await axios.get(`${API_URL}/api/orders/consumer`, config)
       return data
     } catch (error) {
       const message = error.response && error.response.data.message ? error.response.data.message : error.message
@@ -65,7 +65,7 @@ export const getFarmerOrders = createAsyncThunk("orders/getFarmerOrders", async 
       },
     }
 
-    const { data } = await axios.get(`${API_URL}/orders/farmer`, config)
+    const { data } = await axios.get(`${API_URL}/api/orders/farmer`, config)
     return data
   } catch (error) {
     const message = error.response && error.response.data.message ? error.response.data.message : error.message
@@ -84,7 +84,7 @@ export const getOrderDetails = createAsyncThunk("orders/getOrderDetails", async 
       },
     }
 
-    const { data } = await axios.get(`${API_URL}/orders/${id}`, config)
+    const { data } = await axios.get(`${API_URL}/api/orders/${id}`, config)
     return data
   } catch (error) {
     const message = error.response && error.response.data.message ? error.response.data.message : error.message
@@ -106,7 +106,7 @@ export const updateOrderStatus = createAsyncThunk(
         },
       }
 
-      const { data } = await axios.put(`${API_URL}/orders/${id}`, { status }, config)
+      const { data } = await axios.put(`${API_URL}/api/orders/${id}`, { status }, config)
       return data
     } catch (error) {
       const message = error.response && error.response.data.message ? error.response.data.message : error.message
@@ -126,7 +126,7 @@ export const getAllOrders = createAsyncThunk("orders/getAllOrders", async (_, { 
       },
     }
 
-    const { data } = await axios.get(`${API_URL}/orders`, config)
+    const { data } = await axios.get(`${API_URL}/api/orders`, config)
     return data
   } catch (error) {
     const message = error.response && error.response.data.message ? error.response.data.message : error.message

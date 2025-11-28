@@ -18,7 +18,7 @@ export const sendMessage = createAsyncThunk(
         },
       }
 
-      const { data } = await axios.post(`${API_URL}/messages`, messageData, config)
+      const { data } = await axios.post(`${API_URL}/api/messages`, messageData, config)
       return data
     } catch (error) {
       const message = error.response && error.response.data.message ? error.response.data.message : error.message
@@ -40,7 +40,7 @@ export const getConversations = createAsyncThunk(
         },
       }
 
-      const { data } = await axios.get(`${API_URL}/messages`, config)
+      const { data } = await axios.get(`${API_URL}/api/messages`, config)
       return data
     } catch (error) {
       const message = error.response && error.response.data.message ? error.response.data.message : error.message
@@ -62,7 +62,7 @@ export const getConversationMessages = createAsyncThunk(
         },
       }
 
-      const { data } = await axios.get(`${API_URL}/messages/${userId}`, config)
+      const { data } = await axios.get(`${API_URL}/api/messages/${userId}`, config)
       return { data, userId }
     } catch (error) {
       const message = error.response && error.response.data.message ? error.response.data.message : error.message
@@ -84,7 +84,7 @@ export const markMessagesAsRead = createAsyncThunk(
         },
       }
 
-      const { data } = await axios.put(`${API_URL}/messages/read/${userId}`, {}, config)
+      const { data } = await axios.put(`${API_URL}/api/messages/read/${userId}`, {}, config)
       return { data, userId }
     } catch (error) {
       const message = error.response && error.response.data.message ? error.response.data.message : error.message

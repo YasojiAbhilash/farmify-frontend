@@ -7,7 +7,7 @@ const API_URL = import.meta.env.VITE_API_URL
 // Get all farmers
 export const getAllFarmers = createAsyncThunk("farmers/getAllFarmers", async (_, { rejectWithValue }) => {
   try {
-    const { data } = await axios.get(`${API_URL}/users/farmers`)
+    const { data } = await axios.get(`${API_URL}/api/users/farmers`)
     return data
   } catch (error) {
     const message = error.response && error.response.data.message ? error.response.data.message : error.message
@@ -18,7 +18,7 @@ export const getAllFarmers = createAsyncThunk("farmers/getAllFarmers", async (_,
 // Get farmer profile
 export const getFarmerProfile = createAsyncThunk("farmers/getFarmerProfile", async (id, { rejectWithValue }) => {
   try {
-    const { data } = await axios.get(`${API_URL}/users/farmers/${id}`)
+    const { data } = await axios.get(`${API_URL}/api/users/farmers/${id}`)
     return data
   } catch (error) {
     const message = error.response && error.response.data.message ? error.response.data.message : error.message
@@ -40,7 +40,7 @@ export const updateFarmerProfile = createAsyncThunk(
         },
       }
 
-      const { data } = await axios.put(`${API_URL}/users/farmers/profile`, profileData, config)
+      const { data } = await axios.put(`${API_URL}/api/users/farmers/profile`, profileData, config)
       return data
     } catch (error) {
       const message = error.response && error.response.data.message ? error.response.data.message : error.message
