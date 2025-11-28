@@ -9,7 +9,7 @@ export const getCategories = createAsyncThunk(
   "categories/getCategories",
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get(`${API_URL}/categories`);
+      const { data } = await axios.get(`${API_URL}/api/categories`);
       return data;
     } catch (error) {
       const message =
@@ -36,7 +36,7 @@ export const createCategory = createAsyncThunk(
       };
 
       const { data } = await axios.post(
-        `${API_URL}/categories`,
+        `${API_URL}/api/categories`,
         categoryData,
         config
       );
@@ -66,7 +66,7 @@ export const updateCategory = createAsyncThunk(
       };
 
       const { data } = await axios.put(
-        `${API_URL}/categories/${id}`,
+        `${API_URL}/api/categories/${id}`,
         categoryData,
         config
       );
@@ -94,7 +94,7 @@ export const deleteCategory = createAsyncThunk(
         },
       };
 
-      await axios.delete(`${API_URL}/categories/${id}`, config);
+      await axios.delete(`${API_URL}/api/categories/${id}`, config);
       return id;
     } catch (error) {
       const message =

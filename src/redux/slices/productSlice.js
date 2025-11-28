@@ -8,7 +8,7 @@ export const getProducts = createAsyncThunk(
   "products/getProducts",
   async (params = {}, { rejectWithValue }) => {
     try {
-      let url = `${API_URL}/products`;
+      let url = `${API_URL}/api/products`;
 
       if (Object.keys(params).length > 0) {
         const queryParams = new URLSearchParams();
@@ -36,7 +36,7 @@ export const getProductDetails = createAsyncThunk(
   "products/getProductDetails",
   async (id, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get(`${API_URL}/products/${id}`);
+      const { data } = await axios.get(`${API_URL}/api/products/${id}`);
       return data;
     } catch (error) {
       const message =
@@ -60,7 +60,7 @@ export const getFarmerProducts = createAsyncThunk(
         },
       };
 
-      const { data } = await axios.get(`${API_URL}/products/farmer/me`, config);
+      const { data } = await axios.get(`${API_URL}/api/products/farmer/me`, config);
       return data;
     } catch (error) {
       const message =
@@ -86,7 +86,7 @@ export const createProduct = createAsyncThunk(
       };
 
       const { data } = await axios.post(
-        `${API_URL}/products`,
+        `${API_URL}/api/products`,
         productData,
         config
       );
@@ -115,7 +115,7 @@ export const updateProduct = createAsyncThunk(
       };
 
       const { data } = await axios.put(
-        `${API_URL}/products/${id}`,
+        `${API_URL}/api/products/${id}`,
         productData,
         config
       );
@@ -142,7 +142,7 @@ export const deleteProduct = createAsyncThunk(
         },
       };
 
-      await axios.delete(`${API_URL}/products/${id}`, config);
+      await axios.delete(`${API_URL}/api/products/${id}`, config);
       return id;
     } catch (error) {
       const message =
