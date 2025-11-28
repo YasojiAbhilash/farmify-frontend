@@ -8,7 +8,7 @@ export const getProducts = createAsyncThunk(
   "products/getProducts",
   async (params = {}, { rejectWithValue }) => {
     try {
-      let url = `${API_URL}/products`;
+      let url = `${API_URL}/api/products`;
 
       if (Object.keys(params).length > 0) {
         const queryParams = new URLSearchParams();
